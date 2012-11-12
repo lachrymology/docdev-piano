@@ -1,5 +1,9 @@
 ;(function() {
 
+function remarkdown(src, opt) {
+  return "♔";
+}
+
 /**
  * Expose
  */
