@@ -1,7 +1,9 @@
 ;(function() {
 
+var KING = {light : {unicode : '♔', ascii : 'k'}};
+
 function remarkdown(src, opt) {
-  return "♔";
+  return KING.light.unicode;
 }
 
 /**
