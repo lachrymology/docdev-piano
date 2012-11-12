@@ -1,0 +1,16 @@
+{
+  "name": "remarkdown",
+  "description": "A markdown for chess annotation.",
+  "author": "fogus",
+  "version": "0.2.5",
+  "main": "./lib/remarkdown.js",
+  "bin": "./bin/remarkdown",
+  "dependencies" : {"marked" : "0.2.5"},
+  "preferGlobal": true,
+  "repository": "git://github.com/fogus/piano.git",
+  "homepage": "https://www.fogus.me/",
+  "bugs": { "url": "http://github.com/fogus/piano/issues" },
+  "keywords": [ "markdown", "markup", "chess", "html" ],
+  "tags": [ "markdown", "markup", "html", "chess" ],
+  "scripts": { "test": "node test", "bench": "node test --bench" }
+}
