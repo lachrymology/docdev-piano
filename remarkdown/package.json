@@ -1,6 +1,6 @@
 {
   "name": "remarkdown",
-  "description": "A markdown for chess annotation.",
+  "description": "A domain-specific markdown for chess annotation.",
   "author": "fogus",
   "version": "0.2.5",
   "main": "./lib/remarkdown.js",
