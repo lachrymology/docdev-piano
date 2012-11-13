@@ -1,6 +1,9 @@
 ;(function() {
 
-var KING = {light : {unicode : '♔', ascii : 'k'}};
+var KING = {light : {unicode : '♔',
+                     ascii : 'k',
+                     codepoint : 'U+2654',
+                     html : '&#9812;'}};
 
 function remarkdown(src, opt) {
   return KING.light.unicode;
