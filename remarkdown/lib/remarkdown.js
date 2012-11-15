@@ -1,13 +1,27 @@
 ;(function() {
 
-var KING = {light : {unicode : '♔',
-                     ascii : 'k',
-                     codepoint : 'U+2654',
-                     html : '&#9812;'}};
+function reprify(lu, la, lc, lh, du, da, dc, dh) {
+  return {light : {unicode : lu,
+                   ascii : la,
+                   codepoint : lc,
+                   html : lh},
+	  dark :  {unicode : du,
+                   ascii : da,
+                   codepoint : dc,
+                   html : dh}};
+}
+
+var KING = reprify('♔', 'k', 'U+2654', '&#9812;',
+	           '♚', 'K', 'U+265A', '&#9818;');
+
+function reprs() {
+  return {king : KING};
+}
 
 function remarkdown(src, opt) {
-  return KING.light.unicode;
+  return null; 
 }
+
 
 /**
  * Expose
