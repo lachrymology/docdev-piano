@@ -20,10 +20,14 @@ var QUEEN = reprify('♕', 'q', 'U+2655', '&#9813;',
 var ROOK = reprify('♖', 'r', 'U+2656', '&#9814;',
                    '♜', 'R', 'U+265C', '&#9820;');
 
+var BISHOP = reprify('♗', 'b', 'U+2657', '&#9815;',
+                     '♝', 'B', 'U+265D', '&#9821;');
+
 function reprs() {
-  return {king : KING,
-	  queen: QUEEN,
-	  rook:  ROOK};
+  return {king :  KING,
+	  queen:  QUEEN,
+	  rook:   ROOK,
+	  bishop: BISHOP};
 }
 
 function remarkdown(src, opt) {
