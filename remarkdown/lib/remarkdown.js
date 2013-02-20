@@ -1,33 +1,38 @@
 ;(function() {
 
-function reprify(lu, la, lc, lh, du, da, dc, dh) {
-  return {light : {unicode : lu,
-                   ascii : la,
-                   codepoint : lc,
-                   html : lh},
-	  dark :  {unicode : du,
-                   ascii : da,
-                   codepoint : dc,
-                   html : dh}};
+function repr(u, a, c, h) {
+  return {
+    unicode : u,
+    ascii : a,
+    codepoint : c,
+    html : h
+  };
 }
 
-var KING = reprify('♔', 'k', 'U+2654', '&#9812;',
-                   '♚', 'K', 'U+265A', '&#9818;');
+function piece(lu, la, lc, lh, du, da, dc, dh) {
+  return {
+    light : repr(lu, la, lc, lh),
+    dark :  repr(du, da, dc, dh)
+  };
+}
 
-var QUEEN = reprify('♕', 'q', 'U+2655', '&#9813;',
-                    '♛', 'Q', 'U+265B', '&#9819;');
+var KING = piece('♔', 'k', 'U+2654', '&#9812;',
+                 '♚', 'K', 'U+265A', '&#9818;');
 
-var ROOK = reprify('♖', 'r', 'U+2656', '&#9814;',
-                   '♜', 'R', 'U+265C', '&#9820;');
+var QUEEN = piece('♕', 'q', 'U+2655', '&#9813;',
+                  '♛', 'Q', 'U+265B', '&#9819;');
 
-var BISHOP = reprify('♗', 'b', 'U+2657', '&#9815;',
-                     '♝', 'B', 'U+265D', '&#9821;');
+var ROOK = piece('♖', 'r', 'U+2656', '&#9814;',
+                 '♜', 'R', 'U+265C', '&#9820;');
 
-var KNIGHT = reprify('♘', 'n', 'U+2658', '&#9816;',
-                     '♞', 'N', 'U+265E', '&#9822;');
+var BISHOP = piece('♗', 'b', 'U+2657', '&#9815;',
+                   '♝', 'B', 'U+265D', '&#9821;');
 
-var PAWN = reprify('♙', 'p', 'U+2659', '&#9817;',
-                   '♟', 'P', 'U+265F', '&#9823;');
+var KNIGHT = piece('♘', 'n', 'U+2658', '&#9816;',
+                   '♞', 'N', 'U+265E', '&#9822;');
+
+var PAWN = piece('♙', 'p', 'U+2659', '&#9817;',
+                 '♟', 'P', 'U+265F', '&#9823;');
 
 function pieceReprs() {
   return {
@@ -42,7 +47,7 @@ function pieceReprs() {
 
 function boardReprs() {
   return {
-
+  
   };
 }
 
