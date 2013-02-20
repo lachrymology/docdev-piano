@@ -47,7 +47,20 @@ function pieceReprs() {
 
 function boardReprs() {
   return {
-  
+    vline: repr('│', '|', 'U+2502', nil),
+    hline: repr('─', '-', 'U+2500', nil),
+    r:     repr('┌', nil, 'U+250C', nil),
+    rr:    repr('┐', nil, 'U+2510', nil),
+    l:     repr('└', nil, 'U+2514', nil),
+    rl:    repr('┘', nil, 'U+2518', nil),
+    t:     repr('┬', nil, 'U+252C', nil),
+    ut:    repr('┴', nil, 'U+2534', nil),
+    rarm:  repr('├', nil, 'U+251C', nil),
+    larm:  repr('┤', nil, 'U+2524', nil),
+    cross: repr('┼', '+', 'U+253C', nil),
+    lfill: repr('┈', '.', 'U+2508', nil),
+    sfill: repr('·', '.', 'U+00B7', nil),
+    dark:  repr('▒', nil, 'U+2592', nil)
   };
 }
 
