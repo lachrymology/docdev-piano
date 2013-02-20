@@ -29,17 +29,25 @@ var KNIGHT = reprify('♘', 'n', 'U+2658', '&#9816;',
 var PAWN = reprify('♙', 'p', 'U+2659', '&#9817;',
                    '♟', 'P', 'U+265F', '&#9823;');
 
-function reprs() {
-  return {king :  KING,
-	  queen:  QUEEN,
-	  rook:   ROOK,
-	  bishop: BISHOP,
-	  knight: KNIGHT,
-	  pawn:   PAWN};
+function pieceReprs() {
+  return {
+    king :  KING,
+    queen:  QUEEN,
+    rook:   ROOK,
+    bishop: BISHOP,
+    knight: KNIGHT,
+    pawn:   PAWN
+  };
+}
+
+function boardReprs() {
+  return {
+
+  };
 }
 
 function remarkdown(src, opt) {
-  return null; 
+  return null;
 }
 
 
