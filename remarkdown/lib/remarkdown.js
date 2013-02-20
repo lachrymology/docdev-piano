@@ -26,12 +26,16 @@ var BISHOP = reprify('♗', 'b', 'U+2657', '&#9815;',
 var KNIGHT = reprify('♘', 'n', 'U+2658', '&#9816;',
                      '♞', 'N', 'U+265E', '&#9822;');
 
+var PAWN = reprify('♙', 'p', 'U+2659', '&#9817;',
+                   '♟', 'P', 'U+265F', '&#9823;');
+
 function reprs() {
   return {king :  KING,
 	  queen:  QUEEN,
 	  rook:   ROOK,
 	  bishop: BISHOP,
-	  knight: KNIGHT};
+	  knight: KNIGHT,
+	  pawn:   PAWN};
 }
 
 function remarkdown(src, opt) {
