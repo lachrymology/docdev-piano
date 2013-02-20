@@ -14,8 +14,12 @@ function reprify(lu, la, lc, lh, du, da, dc, dh) {
 var KING = reprify('♔', 'k', 'U+2654', '&#9812;',
 	           '♚', 'K', 'U+265A', '&#9818;');
 
+var QUEEN = reprify('♕', 'q', 'U+2655', '&#9813;',
+                    '♛', 'Q', 'U+265B', '&#9819;');
+
 function reprs() {
-  return {king : KING};
+  return {king : KING,
+	  queen: QUEEN};
 }
 
 function remarkdown(src, opt) {
