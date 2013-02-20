@@ -12,14 +12,18 @@ function reprify(lu, la, lc, lh, du, da, dc, dh) {
 }
 
 var KING = reprify('♔', 'k', 'U+2654', '&#9812;',
-	           '♚', 'K', 'U+265A', '&#9818;');
+                   '♚', 'K', 'U+265A', '&#9818;');
 
 var QUEEN = reprify('♕', 'q', 'U+2655', '&#9813;',
                     '♛', 'Q', 'U+265B', '&#9819;');
 
+var ROOK = reprify('♖', 'r', 'U+2656', '&#9814;',
+                   '♜', 'R', 'U+265C', '&#9820;');
+
 function reprs() {
   return {king : KING,
-	  queen: QUEEN};
+	  queen: QUEEN,
+	  rook:  ROOK};
 }
 
 function remarkdown(src, opt) {
