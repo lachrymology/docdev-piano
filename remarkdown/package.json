@@ -6,7 +6,6 @@
   "main": "./lib/remarkdown.js",
   "bin": "./bin/remarkdown",
   "dependencies" : {
-    "marked" : "0.2.5",
     "underscore": ">= 1.4.2"
   },
   "devDependencies": {
