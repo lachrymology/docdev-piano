@@ -1113,7 +1113,6 @@ marked.setOptions = function(opt) {
 
 var htmlOut = {
   code: function(segment) {
-    console.log(segment);
     return '<code>'
            + escape(segment, true)
            + '</code>';
