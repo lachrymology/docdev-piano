@@ -88,7 +88,7 @@ remarkdown.parse = remarkdown;
 remarkdown.opts = {
   out: {
     code: function(segment){
-      return KING.unicode;
+      return KING.dark.unicode;
     }
   }
 };
