@@ -85,6 +85,12 @@ remarkdown.lexer = function(src, opt) {
 
 remarkdown.parse = remarkdown;
 
+remarkdown.out = {
+  code: function(segment){
+    return KING.ascii;
+  }
+};
+
 if (typeof module !== 'undefined') {
   module.exports = remarkdown;
 } else {

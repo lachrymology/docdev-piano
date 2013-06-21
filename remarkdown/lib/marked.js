@@ -651,7 +651,7 @@ InlineLexer.prototype.output = function(src) {
     // code
     if (cap = this.rules.code.exec(src)) {
       src = src.substring(cap[0].length);
-      out += this.options.out.code(cap[0]);
+      out += this.options.out.code(cap[2]);
       continue;
     }
 
@@ -1112,8 +1112,9 @@ marked.setOptions = function(opt) {
 
 var htmlOut = {
   code: function(segment) {
+    console.log(segment);
     return '<code>'
-           + escape(segment[2], true)
+           + escape(segment, true)
            + '</code>';
   }
 };
