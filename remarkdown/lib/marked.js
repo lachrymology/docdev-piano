@@ -757,18 +757,19 @@ InlineLexer.prototype.mangle = function(text) {
  * Parsing & Compiling
  */
 
-function Parser(options) {
+function Parser(opts) {
   this.tokens = [];
   this.token = null;
-  this.options = options || marked.defaults;
+  this.options = opts || marked.defaults;
+  merge(this.options.out, opts.out);
 }
 
 /**
  * Static Parse Method
  */
 
-Parser.parse = function(src, options) {
-  var parser = new Parser(options);
+Parser.parse = function(src, opts) {
+  var parser = new Parser(opts);
   return parser.parse(src);
 };
 

@@ -85,9 +85,11 @@ remarkdown.lexer = function(src, opt) {
 
 remarkdown.parse = remarkdown;
 
-remarkdown.out = {
-  code: function(segment){
-    return KING.ascii;
+remarkdown.opts = {
+  out: {
+    code: function(segment){
+      return KING.ascii;
+    }
   }
 };
 
