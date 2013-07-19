@@ -512,7 +512,7 @@ function InlineLexer(links, opts) {
   this.options = opts || marked.defaults;
   this.links = links;
   this.rules = inline.normal;
-  this.advice  = merge(marked.defaults.advice, (opts && opts.advice) || {});
+  this.advice = buildAdvice(marked.defaults, opts);
 
   if (!this.links) {
     throw new
@@ -1126,6 +1126,9 @@ var htmlOut = {
   }
 };
 
+function buildAdvice(root, aug) {
+  return merge(root.advice || {}, (aug && aug.advice) || {});
+}
 
 marked.defaults = {
   gfm: true,
