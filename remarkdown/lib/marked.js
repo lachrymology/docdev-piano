@@ -761,7 +761,7 @@ function Parser(opts) {
   this.tokens = [];
   this.token = null;
   this.options = opts || marked.defaults;
-  merge(this.options.around, opts.around);
+  if (opts) merge(this.options.around, opts.around);
 }
 
 /**
