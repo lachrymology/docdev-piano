@@ -508,10 +508,11 @@ inline.breaks = merge({}, inline.gfm, {
  * Inline Lexer & Compiler
  */
 
-function InlineLexer(links, options) {
-  this.options = options || marked.defaults;
+function InlineLexer(links, opts) {
+  this.options = opts || marked.defaults;
   this.links = links;
   this.rules = inline.normal;
+  this.advice  = merge(marked.defaults.advice, (opts && opts.advice) || {});
 
   if (!this.links) {
     throw new
@@ -651,8 +652,8 @@ InlineLexer.prototype.output = function(src) {
     // code
     if (cap = this.rules.code.exec(src)) {
       src = src.substring(cap[0].length);
-      var inside = this.options.advice.code.inside(cap[2]);
-      out += this.options.advice.code.around(inside);
+      var inside = this.advice.code.inside(cap[2]);
+      out += this.advice.code.around(inside);
       continue;
     }
 
@@ -762,7 +763,7 @@ function Parser(opts) {
   this.tokens = [];
   this.token = null;
   this.options = opts || marked.defaults;
-  if (opts) merge(this.options.advice, opts.advice);
+  this.advice  = merge(marked.defaults.advice, (opts && opts.advice) || {});
 }
 
 /**
@@ -1110,7 +1111,7 @@ marked.setOptions = function(opt) {
   return marked;
 };
 
-
+marked.merge = merge;
 
 /* out taps */
 
