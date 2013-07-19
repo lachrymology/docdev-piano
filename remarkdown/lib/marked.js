@@ -651,7 +651,7 @@ InlineLexer.prototype.output = function(src) {
     // code
     if (cap = this.rules.code.exec(src)) {
       src = src.substring(cap[0].length);
-      out += this.options.out.code(cap[2]);
+      out += this.options.around.code(cap[2]);
       continue;
     }
 
@@ -761,7 +761,7 @@ function Parser(opts) {
   this.tokens = [];
   this.token = null;
   this.options = opts || marked.defaults;
-  merge(this.options.out, opts.out);
+  merge(this.options.around, opts.around);
 }
 
 /**
@@ -1109,6 +1109,8 @@ marked.setOptions = function(opt) {
   return marked;
 };
 
+
+
 /* out taps */
 
 var htmlOut = {
@@ -1131,7 +1133,7 @@ marked.defaults = {
   highlight: null,
   langPrefix: 'lang-',
   smartypants: false,
-  out: htmlOut
+  around: htmlOut
 };
 
 

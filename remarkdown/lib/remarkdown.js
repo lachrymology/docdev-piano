@@ -86,7 +86,7 @@ remarkdown.lexer = function(src, opt) {
 remarkdown.parse = remarkdown;
 
 remarkdown.opts = {
-  out: {
+  around: {
     code: function(segment){
       return KING.dark.unicode;
     }
