@@ -651,8 +651,8 @@ InlineLexer.prototype.output = function(src) {
     // code
     if (cap = this.rules.code.exec(src)) {
       src = src.substring(cap[0].length);
-      var inside = this.options.code.inside(cap[2]);
-      out += this.options.code.around(inside);
+      var inside = this.options.advice.code.inside(cap[2]);
+      out += this.options.advice.code.around(inside);
       continue;
     }
 
