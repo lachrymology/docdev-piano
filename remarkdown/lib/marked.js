@@ -1115,7 +1115,7 @@ marked.merge = merge;
 
 /* out taps */
 
-var htmlOut = {
+var gruber = {
   code: {
     around: function(segment) {
       return '<code>'
@@ -1141,7 +1141,7 @@ marked.defaults = {
   highlight: null,
   langPrefix: 'lang-',
   smartypants: false,
-  advice: htmlOut
+  advice: gruber
 };
 
 
