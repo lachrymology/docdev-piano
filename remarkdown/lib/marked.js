@@ -651,7 +651,8 @@ InlineLexer.prototype.output = function(src) {
     // code
     if (cap = this.rules.code.exec(src)) {
       src = src.substring(cap[0].length);
-      out += this.options.around.code(cap[2]);
+      var inside = this.options.code.inside(cap[2]);
+      out += this.options.code.around(inside);
       continue;
     }
 
@@ -761,7 +762,7 @@ function Parser(opts) {
   this.tokens = [];
   this.token = null;
   this.options = opts || marked.defaults;
-  if (opts) merge(this.options.around, opts.around);
+  if (opts) merge(this.options.advice, opts.advice);
 }
 
 /**
@@ -1114,10 +1115,13 @@ marked.setOptions = function(opt) {
 /* out taps */
 
 var htmlOut = {
-  code: function(segment) {
-    return '<code>'
-           + escape(segment, true)
-           + '</code>';
+  code: {
+    around: function(segment) {
+      return '<code>'
+             + escape(segment, true)
+             + '</code>';
+    },
+    inside: function(_) { return _ }
   }
 };
 
@@ -1133,7 +1137,7 @@ marked.defaults = {
   highlight: null,
   langPrefix: 'lang-',
   smartypants: false,
-  around: htmlOut
+  advice: htmlOut
 };
 
 
