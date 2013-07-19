@@ -1111,18 +1111,18 @@ marked.setOptions = function(opt) {
   return marked;
 };
 
-marked.merge = merge;
-
-/* out taps */
+/**
+ * Markdown advice
+ **/
 
 var gruber = {
   code: {
     around: function(segment) {
-      return '<code>'
-             + escape(segment, true)
-             + '</code>';
+      return '<code>' + segment + '</code>';
     },
-    inside: function(_) { return _ }
+    inside: function(segment) { 
+      return escape(segment, true);
+    }
   }
 };
 
