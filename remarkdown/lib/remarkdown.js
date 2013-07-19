@@ -88,8 +88,11 @@ remarkdown.parse = remarkdown;
 remarkdown.opts = {
   advice: {
     code: {
-      around: function(segment){
-        return "HI!";
+      around: function(segment) {
+        return "HI " + segment + "!";
+      },
+      inside: function(segment) {
+        return segment.toUpperCase();
       }
     }
   }
