@@ -86,9 +86,11 @@ remarkdown.lexer = function(src, opt) {
 remarkdown.parse = remarkdown;
 
 remarkdown.opts = {
-  around: {
-    code: function(segment){
-      return "HI!";
+  advice: {
+    code: {
+      around: function(segment){
+        return "HI!";
+      }
     }
   }
 };
