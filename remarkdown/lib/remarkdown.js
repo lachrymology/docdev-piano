@@ -101,6 +101,8 @@ marked.Parser.parse(marked.Lexer.lex("`foo`"))
 marked.Parser.parse(marked.Lexer.lex("`foo`"), remarkdown.opts)
 <p>HI!</p>
 
+https://gist.github.com/fogus/e898669743b211a597ab
+
 */
 
 if (typeof module !== 'undefined') {
