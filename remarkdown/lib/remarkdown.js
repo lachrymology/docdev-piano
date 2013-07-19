@@ -88,10 +88,20 @@ remarkdown.parse = remarkdown;
 remarkdown.opts = {
   around: {
     code: function(segment){
-      return KING.dark.unicode;
+      return "HI!";
     }
   }
 };
+
+/*
+
+marked.Parser.parse(marked.Lexer.lex("`foo`"))
+<p><code>foo</code></p>
+
+marked.Parser.parse(marked.Lexer.lex("`foo`"), remarkdown.opts)
+<p>HI!</p>
+
+*/
 
 if (typeof module !== 'undefined') {
   module.exports = remarkdown;
