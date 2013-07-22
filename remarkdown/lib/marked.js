@@ -508,10 +508,11 @@ inline.breaks = merge({}, inline.gfm, {
  * Inline Lexer & Compiler
  */
 
-function InlineLexer(links, options) {
-  this.options = options || marked.defaults;
+function InlineLexer(links, opts) {
+  this.options = opts || marked.defaults;
   this.links = links;
   this.rules = inline.normal;
+  this.advice = buildAdvice(marked.defaults, opts);
 
   if (!this.links) {
     throw new
@@ -651,7 +652,8 @@ InlineLexer.prototype.output = function(src) {
     // code
     if (cap = this.rules.code.exec(src)) {
       src = src.substring(cap[0].length);
-      out += this.options.around.code(cap[2]);
+      var inside = this.advice.code.inside(cap[2]);
+      out += this.advice.code.around(inside);
       continue;
     }
 
@@ -761,7 +763,7 @@ function Parser(opts) {
   this.tokens = [];
   this.token = null;
   this.options = opts || marked.defaults;
-  if (opts) merge(this.options.around, opts.around);
+  this.advice  = merge(marked.defaults.advice, (opts && opts.advice) || {});
 }
 
 /**
@@ -1109,18 +1111,24 @@ marked.setOptions = function(opt) {
   return marked;
 };
 
+/**
+ * Markdown advice
+ **/
 
-
-/* out taps */
-
-var htmlOut = {
-  code: function(segment) {
-    return '<code>'
-           + escape(segment, true)
-           + '</code>';
+var gruber = {
+  code: {
+    around: function(segment) {
+      return '<code>' + segment + '</code>';
+    },
+    inside: function(segment) { 
+      return escape(segment, true);
+    }
   }
 };
 
+function buildAdvice(root, aug) {
+  return merge(root.advice || {}, (aug && aug.advice) || {});
+}
 
 marked.defaults = {
   gfm: true,
@@ -1133,7 +1141,7 @@ marked.defaults = {
   highlight: null,
   langPrefix: 'lang-',
   smartypants: false,
-  around: htmlOut
+  advice: gruber
 };
 
 
