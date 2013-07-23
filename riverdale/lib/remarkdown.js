@@ -100,10 +100,10 @@ remarkdown.opts = {
 
 /*
 
-marked.Parser.parse(marked.Lexer.lex("`foo`"))
+riverdale.Parser.parse(riverdale.Lexer.lex("`foo`"))
 <p><code>foo</code></p>
 
-marked.Parser.parse(marked.Lexer.lex("`foo`"), remarkdown.opts)
+riverdale.Parser.parse(riverdale.Lexer.lex("`foo`"), remarkdown.opts)
 <p>HI!</p>
 
 https://gist.github.com/fogus/e898669743b211a597ab
