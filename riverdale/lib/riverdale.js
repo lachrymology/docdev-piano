@@ -1,7 +1,7 @@
 /**
  * Riverdale - a domain-specific Markdown (DSMD) processor
  * Copyright (c) 2013, Michael Fogus. (MIT Licensed)
- * Based on Marked by Christopher Jeffrey (Copyright (c) 2011-2013)
+ * Based on riverdale by Christopher Jeffrey (Copyright (c) 2011-2013)
  */
 
 ;(function() {
@@ -94,7 +94,7 @@ block.tables = merge({}, block.gfm, {
 function Lexer(options) {
   this.tokens = [];
   this.tokens.links = {};
-  this.options = options || marked.defaults;
+  this.options = options || riverdale.defaults;
   this.rules = block.normal;
 
   if (this.options.gfm) {
@@ -509,10 +509,10 @@ inline.breaks = merge({}, inline.gfm, {
  */
 
 function InlineLexer(links, opts) {
-  this.options = opts || marked.defaults;
+  this.options = opts || riverdale.defaults;
   this.links = links;
   this.rules = inline.normal;
-  this.advice = buildAdvice(marked.defaults, opts);
+  this.advice = buildAdvice(riverdale.defaults, opts);
 
   if (!this.links) {
     throw new
@@ -762,8 +762,8 @@ InlineLexer.prototype.mangle = function(text) {
 function Parser(opts) {
   this.tokens = [];
   this.token = null;
-  this.options = opts || marked.defaults;
-  this.advice  = merge(marked.defaults.advice, (opts && opts.advice) || {});
+  this.options = opts || riverdale.defaults;
+  this.advice  = merge(riverdale.defaults.advice, (opts && opts.advice) || {});
 }
 
 /**
@@ -1018,17 +1018,17 @@ function merge(obj) {
 }
 
 /**
- * Marked
+ * riverdale
  */
 
-function marked(src, opt, callback) {
+function riverdale(src, opt, callback) {
   if (callback || typeof opt === 'function') {
     if (!callback) {
       callback = opt;
       opt = null;
     }
 
-    if (opt) opt = merge({}, marked.defaults, opt);
+    if (opt) opt = merge({}, riverdale.defaults, opt);
 
     var highlight = opt.highlight
       , tokens
@@ -1088,11 +1088,11 @@ function marked(src, opt, callback) {
     return;
   }
   try {
-    if (opt) opt = merge({}, marked.defaults, opt);
+    if (opt) opt = merge({}, riverdale.defaults, opt);
     return Parser.parse(Lexer.lex(src, opt), opt);
   } catch (e) {
-    e.message += '\nPlease report this to https://github.com/chjj/marked.';
-    if ((opt || marked.defaults).silent) {
+    e.message += '\nPlease report this to https://github.com/chjj/riverdale.';
+    if ((opt || riverdale.defaults).silent) {
       return '<p>An error occured:</p><pre>'
         + escape(e.message + '', true)
         + '</pre>';
@@ -1105,10 +1105,10 @@ function marked(src, opt, callback) {
  * Options
  */
 
-marked.options =
-marked.setOptions = function(opt) {
-  merge(marked.defaults, opt);
-  return marked;
+riverdale.options =
+riverdale.setOptions = function(opt) {
+  merge(riverdale.defaults, opt);
+  return riverdale;
 };
 
 /**
@@ -1130,7 +1130,7 @@ function buildAdvice(root, aug) {
   return merge(root.advice || {}, (aug && aug.advice) || {});
 }
 
-marked.defaults = {
+riverdale.defaults = {
   gfm: true,
   tables: true,
   breaks: false,
@@ -1149,23 +1149,23 @@ marked.defaults = {
  * Expose
  */
 
-marked.Parser = Parser;
-marked.parser = Parser.parse;
+riverdale.Parser = Parser;
+riverdale.parser = Parser.parse;
 
-marked.Lexer = Lexer;
-marked.lexer = Lexer.lex;
+riverdale.Lexer = Lexer;
+riverdale.lexer = Lexer.lex;
 
-marked.InlineLexer = InlineLexer;
-marked.inlineLexer = InlineLexer.output;
+riverdale.InlineLexer = InlineLexer;
+riverdale.inlineLexer = InlineLexer.output;
 
-marked.parse = marked;
+riverdale.parse = riverdale;
 
 if (typeof exports === 'object') {
-  module.exports = marked;
+  module.exports = riverdale;
 } else if (typeof define === 'function' && define.amd) {
-  define(function() { return marked; });
+  define(function() { return riverdale; });
 } else {
-  this.marked = marked;
+  this.riverdale = riverdale;
 }
 
 }).call(function() {
