@@ -1,7 +1,7 @@
 /**
- * marked - a markdown parser
- * Copyright (c) 2011-2013, Christopher Jeffrey. (MIT Licensed)
- * https://github.com/chjj/marked
+ * Riverdale - a domain-specific Markdown (DSMD) processor
+ * Copyright (c) 2013, Michael Fogus. (MIT Licensed)
+ * Based on Marked by Christopher Jeffrey (Copyright (c) 2011-2013)
  */
 
 ;(function() {
