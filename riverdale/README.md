@@ -1,1 +1,4 @@
-a simple chess annotation notation
+Riverdale
+=========
+
+A domain-specific Markdown processor.
