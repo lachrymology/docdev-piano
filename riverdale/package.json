@@ -1,20 +1,18 @@
 {
-  "name": "remarkdown",
-  "description": "A domain-specific markdown for chess annotation.",
+  "name": "riverdale",
+  "description": "A domain-specific Markdown (DSMD) processor.",
   "author": "fogus",
   "version": "0.0.1",
-  "main": "./lib/remarkdown.js",
-  "bin": "./bin/remarkdown",
+  "main": "./lib/riverdale.js",
+  "bin": "./bin/riverdale",
   "dependencies" : {
-    "underscore": ">= 1.4.2"
+    "underscore": ">= 1.4.3"
   },
   "devDependencies": {
     "grunt": "~0.3.12"
   },
   "preferGlobal": true,
-  "repository": "git://github.com/fogus/piano.git",
   "homepage": "https://www.fogus.me/",
-  "bugs": { "url": "http://github.com/fogus/piano/issues" },
   "keywords": [ "markdown", "markup", "chess", "html" ],
   "tags": [ "markdown", "markup", "html", "chess" ],
   "scripts": { "test": "node test", "bench": "node test --bench" }
