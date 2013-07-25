@@ -1,4 +1,4 @@
 Riverdale
 =========
 
-A domain-specific Markdown processor.
+Coming soon to <https://www.github.com/fogus/riverdale>.
